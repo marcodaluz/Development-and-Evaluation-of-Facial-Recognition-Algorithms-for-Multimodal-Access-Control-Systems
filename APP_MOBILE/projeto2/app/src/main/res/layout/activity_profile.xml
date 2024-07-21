@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".profile">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF0000" />
+
+    <!-- Space below toolbar -->
+    <View
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="#FF0000" />
+
+    <!-- User Profile Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardprofileinfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginBottom="40dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- User Profile Image -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="18009dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_perfil"
+                    tools:srcCompat="@tools:sample/avatars[10]" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- User Information -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Vertical Divider -->
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="8dp"
+                    android:background="#FF0000" />
+
+                <!-- User Details -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- User Name -->
+                    <TextView
+                        android:id="@+id/userNameTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingTop="8dp"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <!-- User ID -->
+                    <TextView
+                        android:id="@+id/userIdTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingTop="4dp"
+                        android:textSize="18sp" />
+
+                    <!-- User Course/Cargo -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="15dp">
+
+                        <TextView
+                            android:id="@+id/userCourseTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginVertical="4dp"
+                            android:textSize="22dp" />
+                    </LinearLayout>
+
+                    <!-- Hora de Entrada -->
+                    <TextView
+                        android:id="@+id/horaEntradaTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginVertical="4dp"
+                        android:text="Normal Entry Time: "
+                        android:textSize="18sp" />
+
+                    <!-- Hora de Saída -->
+                    <TextView
+                        android:id="@+id/horaSaidaTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginVertical="4dp"
+                        android:text="Normal Exit Time: "
+                        android:textSize="18sp" />
+
+                    <!-- Departamento -->
+                    <TextView
+                        android:id="@+id/departamentoTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginVertical="4dp"
+                        android:text="Department: "
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Email Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_below="@+id/cardprofileinfo"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp">
+
+            <!-- Email Icon -->
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginLeft="9dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/emai" />
+
+            <!-- Email Text -->
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="22dp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Phone Number Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardnumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_below="@+id/cardemail"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp">
+
+            <!-- Phone Number Icon -->
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginLeft="9dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_phon" />
+
+            <!-- Phone Number Text -->
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="22dp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- My Attendance Button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardnumber"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <!-- My Attendance Button -->
+        <Button
+            android:id="@+id/goAttendance"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:backgroundTint="#808080"
+            android:text="My entry records"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+        <!-- New Button -->
+        <Button
+            android:id="@+id/goOut"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="#808080"
+            android:text="My exit records"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+        <Button
+            android:id="@+id/roomAcess"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="#808080"
+            android:text="Room Acess"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+    </LinearLayout>
+</RelativeLayout>

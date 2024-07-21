@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login </title>
+    <style>
+        /* Reset básico e estilos compartilhados do CSS anterior */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('../static/face.jpg');/* Adicione o caminho correto para a imagem de fundo aqui */
+            background-size: cover;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .header {
+            background-color:  #990000;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            height: 50px;
+        }
+
+        .header .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .navbar a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .header .navbar a:hover {
+            background-color:  #990000;
+            color: white;
+        }
+
+        footer {
+            background-color:  #990000;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+
+        }
+
+  
+        /* Estilos específicos para a página de login */
+        .login-container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color:  #990000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background-color:  #990000;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="../static/face.jpg" alt="Logo da Empresa"> <!-- Caminho do logo -->
+        </div>
+        <div class="navbar">
+           
+            <a href="curriculo.html">About us</a>
+            <a href="contact_form.html">Contact</a>
+        </div>
+    </div>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Enter">
+        </form>
+        
+    </div>
+
+    <footer>
+        © 2024 Facial recognition system. All rights reserved.
+    </footer>
+
+    
+</body>
+</html>

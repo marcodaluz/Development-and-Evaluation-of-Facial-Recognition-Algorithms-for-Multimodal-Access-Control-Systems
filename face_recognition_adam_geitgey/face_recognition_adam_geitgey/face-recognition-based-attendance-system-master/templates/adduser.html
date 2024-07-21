@@ -1,0 +1,328 @@
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <title> Add User </title>
+    <style>
+        /* Estilos Básicos e Compartilhados */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-size: cover;
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: #004d99;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo img {
+            height: 50px;
+        }
+
+        .header .navbar a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .header .navbar a:hover {
+            background-color: #003366;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        /* Estilos Específicos para a Página de Adição de Usuário */
+        .container {
+            flex-grow: 1;
+            display: flex;
+            margin: 20px 0;
+        }
+
+        .welcome-section, .form-section {
+            flex-basis: 50%;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .welcome-section {
+            background-color: rgba(0, 77, 153, 0.1);
+        }
+
+        .form-section {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section form {
+            margin-top: 20px;
+        }
+
+        label, input[type=text], input[type=submit] {
+            display: block;
+            width: 80%;
+            margin: auto;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        input[type=submit] {
+            background-color: #004d99;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #003366;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="../static/logo.jpeg" alt="Logo da Empresa">
+        </div>
+        <div class="navbar">
+            <a onclick="window.location.href='/dashboard'">Home</a>
+            <a onclick="window.location.href='/users'">List Employees</a>
+            <a onclick="window.location.href='/entryRecord'">Entry records</a>
+            <a onclick="window.location.href='/exitRecord'">Exit records</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="welcome-section">
+            <h2>Please Fill the Form</h2>
+            <p>Please fill out the form to add a new user. Once the form is completed, the camera on your computer will be activated to capture images for training our model.</p>
+        </div>
+
+        <div class="form-section">
+            <form action="/add" method="post">
+                <label for="newuserid">User ID:</label>
+                <input type="text" id="newuserid" name="newuserid" required>
+                
+                <label for="newusername">Username:</label>
+                <input type="text" id="newusername" name="newusername" required>
+
+                <label for="password">Password:</label>
+                <input type="text" id="password" name="password" required>
+
+                <label for="cargo">Job Title:</label>
+                <input type="text" id="cargo" name="cargo">
+
+                <label for="departamento">Department:</label>
+                <input type="text" id="departamento" name="departamento">
+
+
+                <label for="horaentrada">Normal Entry Time:</label>
+                <input type="time" id="horaentrada" name="horaentrada">
+
+                <label for="horasaida">Normal Exit Time:</label>
+                <input type="time" id="horasaida" name="horasaida">
+
+                <input type="submit" value="Add Employee">
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <footer>
+        © 2024 Facial recognition system. All rights reserved.
+    </footer>
+</body>
+</html>
+!-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Add User </title>
+    <style>
+        /* Estilos Básicos e Compartilhados */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-size: cover;
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: #990000;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo img {
+            height: 50px;
+        }
+
+        .header .navbar a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .header .navbar a:hover {
+            background-color: #990000;
+        }
+
+        footer {
+            background-color: #990000;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        /* Estilos Específicos para a Página de Adição de Usuário */
+        .container {
+            flex-grow: 1;
+            display: flex;
+            margin: 20px 0;
+        }
+
+        .welcome-section, .form-section {
+            flex-basis: 50%;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .welcome-section {
+            background-color: rgba(0, 77, 153, 0.1);
+        }
+
+        .form-section {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section form {
+            margin-top: 20px;
+        }
+
+        label, input[type=text], input[type=time], input[type=file], input[type=submit] {
+            display: block;
+            width: 80%;
+            margin: auto;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        input[type=submit] {
+            background-color:#990000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #990000;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="../static/face.jpg" alt="Logo da Empresa">
+        </div>
+        <div class="navbar">
+            <a onclick="window.location.href='/dashboard'">Home</a>
+            <a onclick="window.location.href='/users'">List Employees</a>
+            <a onclick="window.location.href='/entryRecord'">Entry records</a>
+            <a onclick="window.location.href='/exitRecord'">Exit records</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="welcome-section">
+            <h2>Please Fill the Form</h2>
+            <p>Please fill out the form to add a new user. Once the form is completed, the camera on your computer will be activated to capture images for training our model.</p>
+        </div>
+
+        <div class="form-section">
+            <form action="/add" method="post" enctype="multipart/form-data">
+                <label for="newuserid">User ID:</label>
+                <input type="text" id="newuserid" name="newuserid" required>
+                
+                <label for="newusername">Username:</label>
+                <input type="text" id="newusername" name="newusername" required>
+
+                <label for="password">Password:</label>
+                <input type="text" id="password" name="password" required>
+
+                <label for="cargo">Job Title:</label>
+                <input type="text" id="cargo" name="cargo">
+
+                <label for="departamento">Department:</label>
+                <input type="text" id="departamento" name="departamento">
+
+                <label for="horaentrada">Normal Entry Time:</label>
+                <input type="time" id="horaentrada" name="horaentrada">
+
+                <label for="horasaida">Normal Exit Time:</label>
+                <input type="time" id="horasaida" name="horasaida">
+
+                <label for="horasaida">User Pin</label>
+                <input type="text" id="pin" name="pin">
+
+                <label for="photo">Upload Photo:</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+
+                <input type="submit" value="Add Employee">
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <footer>
+        © 2024 Facial recognition system. All rights reserved.
+    </footer>
+</body>
+</html>

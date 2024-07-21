@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Stream</title>
+    <style>
+        /* Estilos Básicos e Compartilhados */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-size: cover;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+    background-color: #990000;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end; /* Alinha os itens à direita */
+    margin-left: auto; /* Empurra a navbar para a direita */
+}
+
+
+        .navbar a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            background-color: #770000;
+        }
+
+        footer {
+            background-color: #990000;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 60px; /* Espaço para a navbar */
+            padding-bottom: 40px; /* Espaço para o footer */
+        }
+
+        video, canvas {
+            position: absolute;
+            width: 640px;  /* Ajustar conforme a necessidade */
+            height: 480px;
+        }
+
+        canvas {
+            z-index: 10;
+        }
+
+        button {
+            position: fixed;
+            bottom: 50px; /* Posição do botão acima do footer */
+            left: 50%; /* Centralizar o botão */
+            transform: translateX(-50%);
+            z-index: 20;
+            padding: 10px 20px;
+            background-color: #990000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #770000;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="navbar">
+            <a href="/dashboard">Home</a>
+            <a href="/users">List Employees</a>
+            <a href="/entryRecord">Entry records</a>
+            <a href="/exitRecord">Exit records</a>
+        </div>
+    </div>
+    
+    <main>
+        <video id="video" autoplay></video>
+        <canvas id="canvasOverlay"></canvas>
+        <button onclick="take_snapshot()">Capture image</button>
+    </main>
+
+    <footer>
+        © 2024 Facial recognition system. All rights reserved.
+    </footer>
+
+    <script>
+        const video = document.getElementById('video');
+        const canvasOverlay = document.getElementById('canvasOverlay');
+        canvasOverlay.width = 640;
+        canvasOverlay.height = 480;
+        const contextOverlay = canvasOverlay.getContext('2d');
+
+        function take_snapshot() {
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            canvas.toBlob(function(blob) {
+                const formData = new FormData();
+                formData.append('image', blob, 'snapshot.jpg');
+                fetch('/capture_and_process', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.faces) {
+                        drawFaces(data.faces);
+                    }
+                    alert('Resultado: ' + data.result);
+                })
+                .catch(error => console.error('Erro:', error));
+            }, 'image/jpeg');
+        }
+
+        function drawFaces(faces) {
+            contextOverlay.clearRect(0, 0, canvasOverlay.width, canvasOverlay.height);
+            faces.forEach(face => {
+                const [top, right, bottom, left] = face.location;
+                const width = right - left;
+                const height = bottom - top;
+                contextOverlay.strokeStyle = 'green';
+                contextOverlay.lineWidth = 3;
+                contextOverlay.strokeRect(left, top, width, height);
+            });
+        }
+
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                video.srcObject = stream;
+            })
+            .catch(function(error) {
+                console.log("Erro ao acessar a câmera:", error);
+            });
+    </script>
+</body>
+</html>

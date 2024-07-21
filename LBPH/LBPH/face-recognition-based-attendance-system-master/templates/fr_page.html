@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-size: cover;
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: #006600;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .navbar a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .header .navbar a:hover {
+            background-color: #005500;
+        }
+
+        footer {
+            background-color: #006600;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .container-fluid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 120px); /* Adjust height based on header and footer height */
+        }
+
+        .video-container {
+            width: 50%; /* Smaller width for the video */
+            margin: auto;
+            padding: 20px;
+        }
+
+        .img-thumbnail {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            
+        </div>
+        <div class="navbar">
+            <a onclick="window.location.href='/dashboard'">Home</a>
+            <a onclick="window.location.href='/users'">List Employees</a>
+            <a onclick="window.location.href='/entryRecord'">Entry records</a>
+            <a onclick="window.location.href='/exitRecord'">Exit records</a>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="video-container">
+            <img src="{{ url_for('video_feed') }}" class="img-thumbnail">
+        </div>
+    </div>
+
+    <footer>
+        © 2024 Facial recognition system with LBPH. All rights reserved.
+    </footer>
+</body>
+</html>

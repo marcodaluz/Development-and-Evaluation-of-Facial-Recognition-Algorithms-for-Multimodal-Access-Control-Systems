@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pagina_regi"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF0000"
+    >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="380dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login Form"
+            android:id="@+id/loginFormText"
+            android:layout_marginBottom="10dp"
+            android:textSize="15dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            />
+
+        <LinearLayout
+            android:layout_width="299dp"
+            android:layout_height="43dp"
+            android:id="@+id/field1"
+            android:layout_below="@id/loginFormText"
+            android:layout_marginBottom="19dp"
+            android:background="@drawable/rectanglel_login_field"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:text="imagem"
+                android:background="@drawable/email_icon"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+
+                />
+            <EditText
+                android:id="@+id/user_email"
+                android:layout_width="0dp"
+                android:layout_weight="9"
+                android:layout_height="43dp"
+                android:padding="10dp"
+                android:textColorHint="@color/black"
+                android:hint="Enter your email"
+                android:textColor="@color/black"
+                style="@style/EditTextNoUnderline"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="299dp"
+            android:layout_height="43dp"
+            android:id="@+id/field2"
+            android:layout_below="@id/field1"
+            android:layout_marginBottom="19dp"
+            android:background="@drawable/rectanglel_login_field"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:text="imagem"
+                android:background="@drawable/lock_icon"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+
+                />
+
+            <EditText
+                android:id="@+id/user_password"
+                style="@style/EditTextNoUnderline"
+                android:layout_width="0dp"
+                android:layout_height="43dp"
+                android:layout_weight="9"
+                android:hint="Enter your password"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/field2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Login"
+            android:id="@+id/btnLogin"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            android:textSize="16dp"
+            android:layout_gravity="center"
+            android:elevation="4dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/app_logo"
+        android:layout_width="184dp"
+        android:layout_height="210dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="120dp"
+        >
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/logo" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Face Recognition"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif"
+            android:layout_below="@id/logo"/>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
